@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: my-sample-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: my-sample-server 
+        app: my-sample-server
+        tier: backend
+        role: application-server
+    spec:
+      volumes: 
+      - name: my-sample-server-config
+        configMap:
+          name: my-sample-server-config       
+      containers:
+      - name: trench-server 
+        image: gcr.io/sample-project-1982/my-sample-server:latest
+        imagePullPolicy: Always 
+        command: ["npm","start",--,]
+        args: ["/etc/config/config.json"]
+        env:                        
+        volumeMounts: 
+          - name: my-sample-server-config
+            mountPath: "/etc/config"
+            readOnly: true      
+        ports:
+        - containerPort: 1337       
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 1337
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+                                       
+                                      
+           
+      
+                                                                 
+              

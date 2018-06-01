@@ -1,0 +1,66 @@
+{
+    "databaseURI": "mongodb://mongo:27017/trench-local-db-1",
+    "appId": "8o0XCNfrZScGf6117bhggd7J6ySOImmXGkcJrN21V6A",
+    "masterKey": "qzhVLnXrE1dE5EQ7fiZeL4PszOzSCVu5x5X07BseC0",
+    "serverURL": "http://localhost:1337",
+    "publicServerURL" : "http://192.168.1.14:1337",
+    "cloud": "/trench-server/cloud/index.js",
+    "mountPath": "/",
+    "port": 1337,   
+    "logLevel" : "warn",
+    "allowClientClassCreation": false,
+    "maxLimit": 250,
+    "masterKeyIps": [],
+    "maxUploadSize": "100mb",
+    "verbose" : false,
+    "enableAnonymousUsers": false,
+    "accountLockout": {
+        "duration": 5,
+        "threshold": 5
+    },   
+    "liveQuery" : {        
+        "classNames": [
+            "_User",
+            "Item", 
+            "Follow",
+            "Notification", 
+            "ItemConversation", 
+            "ItemConversationMessage"
+        ]
+    },   
+    "startLiveQueryServer" : true, 
+    "appName": "Trench",
+    "verifyUserEmails": false,
+ 
+    "emailAdapter": {
+        "module": "@parse/simple-mailgun-adapter",
+        "options": {
+            "fromAddress": "donotreply@trenchapp.com",
+            "domain": "mail.trenchapp.com",
+            "apiKey": "key-06df540e7dbbe7bf99007d822278f9ae"
+        }
+    },
+    "passwordPolicy": {
+        "doNotAllowUsername": true,
+        "maxPasswordHistory": 5,
+        "resetTokenValidityDuration": 864000
+    },
+    "push" : {
+        "ios": [
+            {
+                "token": {
+                    "key": "/trench-server/keys/push/AuthKey_9U4B5Y6844.p8",
+                    "keyId": "9U4B5Y6844",
+                    "teamId": "42Y2HHXZBK"
+                },
+                "topic": "fashion.trench.ios.dev",
+                "production": false
+            }            
+        ]     
+    }, 
+    "auth" : {
+        "facebook" : {
+            "appIds" : "1009628725760114"
+        }
+    }  
+}

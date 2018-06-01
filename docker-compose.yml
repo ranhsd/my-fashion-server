@@ -1,0 +1,50 @@
+version: "2"
+services:
+  # NODEJS Application server image
+  app:
+    build: ./app
+    command: npm run dev -- /my-sample-server/config/config.json
+    container_name: my-sample-app
+    volumes:
+      - ./app:/my-sample-server/
+      - /my-sample-server/node_modules
+    ports:
+      - "1337:1337"
+      - "9229:9229"
+      - "5858:5858"
+    links:
+      - mongo
+    # environment:
+    
+   
+  dashboard:
+    image: parseplatform/parse-dashboard:1.1.0
+    volumes:
+      - ./dashboard/dashboard-config.json:/src/Parse-Dashboard/parse-dashboard-config.json   
+    environment:
+      PORT: 4040
+      PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: 1
+      ALLOW_INSECURE_HTTP: 1
+      MOUNT_PATH: "/"
+
+    ports:
+      - "4040:4040"
+
+  # MongoDB image config 
+  mongo:
+    image: mongo
+    container_name: my-sample-app-mongodb
+    ports: 
+    - "27017:27017"
+    volumes_from:
+    - mongodata
+    # command: --smallfiles --rest --auth   # this commad make sure that we access mongdodb with username and password!
+
+  mongodata:    
+    image: mongo  
+    volumes:
+    # currently we mound the DB to ./data/db but we can also mount it to /private/data/db. Before we mount it there we must make sure that 
+    # the folder /data/db was created ahead due to permissions issues.
+    - ./data/db:/data/db  #mount the mongoDB files to the localfile system    
+    command: 
+      - --break-mongo

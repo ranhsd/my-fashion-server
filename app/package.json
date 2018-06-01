@@ -1,0 +1,20 @@
+{
+  "name": "my-sample-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start" : "node ./node_modules/.bin/parse-server",
+    "dev": "nodemon --inspect=0.0.0.0:9229 ./node_modules/.bin/parse-server"
+  },
+  "keywords": [
+    "sample",
+    "proj"
+  ],
+  "author": "Ran",
+  "license": "MIT",
+  "dependencies": {
+    "parse-server": "^2.8.1"
+  }
+}
