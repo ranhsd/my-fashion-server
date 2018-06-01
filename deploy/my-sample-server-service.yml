@@ -8,6 +8,6 @@ spec:
     targetPort: 1337 
     protocol: TCP
     name: my-sample-server
-  type: NodePort 
+  type: LoadBalancer 
   selector:
     app: my-sample-server   

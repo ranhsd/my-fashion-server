@@ -11,6 +11,17 @@ Parse.Cloud.beforeSave(Parse.User, (request, response)=> {
     response.success(request.object);
 });
 
+Parse.Cloud.beforeFind("Item", (request, response) => {
+    
+    if (!request.user || !request.user.get("sessionToken")) {
+        response.error("Please log in or register first");
+        return;
+    }
+    
+    response.success(request.objects);
+    
+});
+
 Parse.Cloud.beforeSave("Item", (request, response) => {
 
     if (!request.user || !request.user.get("sessionToken")) {

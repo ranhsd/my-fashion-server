@@ -4,8 +4,14 @@
         "serverURL": "http://localhost:1337",
         "appId": "5QV2FNUBHIOWPKWNFUZQYKSO03BIK1CR8C678ZTOJZBJ",
         "masterKey": "WXB42Y7JCA82MQT8NJFTWEKP1DDMD61XI77SIROB31AC",
-        "appName": "My Sample App"
-      }  
+        "appName": "My Sample App - Dev"
+      } ,
+      {
+        "serverURL": "http://35.227.76.116/",
+        "appId": "5QV2FNUBHIOWPKWNFUZQYKSO03BIK1CR8C678ZTOJZBJ",
+        "masterKey": "WXB42Y7JCA82MQT8NJFTWEKP1DDMD61XI77SIROB31AC",
+        "appName": "My Sample App - Prod"
+      }         
     ],
     "users": [
       {

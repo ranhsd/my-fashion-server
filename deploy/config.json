@@ -1,5 +1,5 @@
 {
-    "databaseURI": "mongodb://mongo:27017/my-sample-app-db-1",
+    "databaseURI": "mongodb://root:1a2a3a@ds241570.mlab.com:41570/my-sample-server-db",
     "appId" : "5QV2FNUBHIOWPKWNFUZQYKSO03BIK1CR8C678ZTOJZBJ",
     "masterKey" : "WXB42Y7JCA82MQT8NJFTWEKP1DDMD61XI77SIROB31AC",
     "serverURL": "http://localhost:1337/",

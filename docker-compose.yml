@@ -14,7 +14,6 @@ services:
       - "5858:5858"
     links:
       - mongo
-    # environment:
     
    
   dashboard:
